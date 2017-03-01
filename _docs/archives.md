@@ -106,6 +106,13 @@ record 0 as values:
 $ tar --owner=0 --group=0 --numeric-owner -cf product.tar build
 {% endhighlight %}
 
+Permissions
+-----------
+
+{% highlight sh %}
+$ tar --mode=go=rX,u+rw,a-s -cf product.tar build
+{% endhighlight %}
+
 Full example
 ------------
 
@@ -117,6 +124,7 @@ The recommended way to create a Tar archive is thus:
 $ tar --sort=name \
       --mtime="@${SOURCE_DATE_EPOCH}" \
       --owner=0 --group=0 --numeric-owner \
+      --mode=go=rX,u+rw,a-s \
       -cf product.tar build
 {% endhighlight %}
 </div>
